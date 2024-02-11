@@ -146,25 +146,6 @@
         </collision>
     </link>
 
-    <link name="rgb_camera">
-        <xacro:default_inertial mass="0.01" />
-        <visual>
-            <origin rpy="-${PI / 2} 0 ${PI + PI / 2}" xyz="-0.096 0.125 0.14" />
-            <geometry>
-                <mesh filename="package://arduinobot_description/meshes/pi_camera.STL"
-                    scale="0.01 0.01 0.01" />
-            </geometry>
-        </visual>
-        <collision>
-            <origin rpy="-${PI / 2} 0 ${PI + PI / 2}" xyz="-0.096 0.125 0.14" />
-            <geometry>
-                <mesh filename="package://arduinobot_description/meshes/pi_camera.STL"
-                    scale="0.01 0.01 0.01" />
-            </geometry>
-        </collision>
-    </link>
-
-
     <!-- Joints -->
     <joint name="virtual_joint" type="fixed">
         <parent link="world" />
@@ -223,6 +204,9 @@
             effort="${effort}" velocity="${velocity}" />
         <mimic joint="joint_4" multiplier="-1" />
     </joint>
+
+    <xacro:include filename="rgb_camera.xacro" />
+    <xacro:include filename="rgb_camera_gazebo.xacro" />
 
     <joint name="rgb_camera_joint" type="fixed">
         <parent link="base_link" />

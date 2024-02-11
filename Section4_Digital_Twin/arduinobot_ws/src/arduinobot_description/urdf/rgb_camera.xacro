@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <link name="rgb_camera">
+        <xacro:default_inertial mass="0.001" />
+        <visual>
+            <origin rpy="-${PI / 2} 0 ${PI + PI / 2}" xyz="-0.096 0.125 0.14" />
+            <geometry>
+                <mesh filename="package://arduinobot_description/meshes/pi_camera.STL"
+                    scale="0.01 0.01 0.01" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin rpy="-${PI / 2} 0 ${PI + PI / 2}" xyz="-0.096 0.125 0.14" />
+            <geometry>
+                <mesh filename="package://arduinobot_description/meshes/pi_camera.STL"
+                    scale="0.01 0.01 0.01" />
+            </geometry>
+        </collision>
+    </link>
+
+</robot>

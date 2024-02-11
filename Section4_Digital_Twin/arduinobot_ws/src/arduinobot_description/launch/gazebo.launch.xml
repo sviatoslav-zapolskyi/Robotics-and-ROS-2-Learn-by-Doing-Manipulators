@@ -1,0 +1,13 @@
+<launch>
+    <node pkg="robot_state_publisher" exec="robot_state_publisher">
+        <param name="robot_description"
+            value="$(command 'xacro $(find-pkg-share arduinobot_description)/urdf/arduinobot.urdf.xacro')" />
+    </node>
+
+    <include file="$(find-pkg-share gazebo_ros)/launch/gazebo.launch.py" />
+
+    <node pkg="gazebo_ros" exec="spawn_entity.py" args="-topic robot_description -entity arduinobot" />
+
+    <node pkg="rviz2" exec="rviz2" output="screen"
+        args="-d $(find-pkg-share arduinobot_description)/rviz/display.rviz" />
+</launch>
